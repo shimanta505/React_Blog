@@ -1,14 +1,12 @@
 import {useState} from "react"
-import Clock from "./clock"
+import Weather from "./Weather"
 
 const App = () => {
   
   return (
     <div>
       <h1>App Component</h1>
-
-      <Clock/>
-
+      <Weather tempareture={26}></Weather>
     </div>
   );
 };
