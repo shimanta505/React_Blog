@@ -1,5 +1,5 @@
 import { FiHeart } from "react-icons/fi";
-import { AiOutlineShoppingCart,AiOutlineUserAdd } from "react-icons/ai";
+import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
 import "./Nav.css"
 
 function Nav() {
@@ -9,7 +9,16 @@ function Nav() {
                 <input type="text" className="search-input" placeholder="Enter your Search Shoes"></input>
             </div>
             <div className="profile-container">
-                <a href=""/>
+                <a href="#">
+                    <FiHeart className="nav-icons"></FiHeart>
+                </a>
+                <a className="#">
+                    <AiOutlineShoppingCart className="nav-icons"></AiOutlineShoppingCart>
+                </a>
+
+                <a className="#">
+                    <AiOutlineUserAdd className="nav-icons"></AiOutlineUserAdd>
+                </a>
             </div>
 
         </nav>

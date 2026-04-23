@@ -2,6 +2,7 @@ import {useState} from "react"
 import Navigation from "./navigation/Nav.jsx"
 import Products from './products/Products.jsx'
 import Recomended from "./recomended/Recomended.jsx";
+import "./index.css"
 
 const App = () => {
   
