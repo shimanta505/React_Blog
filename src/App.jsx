@@ -1,12 +1,17 @@
 import {useState} from "react"
-import TodoList from "./TodoList"
+import Navigation from "./navigation/Nav.jsx"
+import Products from './products/Products.jsx'
+import Recomended from "./recomended/Recomended.jsx";
+import "./index.css"
 
 const App = () => {
   
   return (
     <div>
-      <h1>App Component</h1>
-      <TodoList/>
+      <Navigation/>
+      <Products/>
+      <Recomended/>
+    
     </div>
   );
 };
