@@ -1,16 +1,12 @@
-import {useState} from "react"
-import Navigation from "./navigation/Nav.jsx"
-import Products from './products/Products.jsx'
-import Recomended from "./recomended/Recomended.jsx";
+import { useState } from "react";
+import Accordian from "./components/accordian/index.jsx";
+//import "./App.css";
 
 const App = () => {
-  
+
   return (
     <div>
-      <Navigation/>
-      <Products/>
-      <Recomended/>
-    
+      <Accordian/>
     </div>
   );
 };
