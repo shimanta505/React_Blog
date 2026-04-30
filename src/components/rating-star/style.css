@@ -1,0 +1,16 @@
+.clickedIcon{
+    background-color: gold;
+    box-shadow: 5px 5px grey;
+    
+    cursor: pointer;
+}
+
+.hoverIcon{
+    background-color: goldenrod;
+    box-shadow: 5px 5px grey;
+    cursor: pointer;
+}
+.inActiveIcon{
+    background-color: aliceblue;
+    cursor: pointer;
+}

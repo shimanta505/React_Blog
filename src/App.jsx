@@ -1,12 +1,12 @@
 import { useState } from "react";
-import Accordian from "./components/accordian/index.jsx";
+import RatingStar from "./components/rating-star";
 //import "./App.css";
 
 const App = () => {
 
   return (
     <div>
-      <Accordian/>
+      <RatingStar noOfStars={10}/>
     </div>
   );
 };
