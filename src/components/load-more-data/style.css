@@ -1,0 +1,41 @@
+.loader{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    align-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: block;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    background-color: aliceblue;
+
+}
+
+.product{
+    padding: 20px;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.show-more{
+    display: flex;
+    align-content: center;
+    position: relative;
+}
