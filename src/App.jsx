@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import "tailwindcss";
 
 const App = () => {
@@ -6,27 +6,33 @@ const App = () => {
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [charAllowed, setCharAllowed] = useState(false);
   const [password, setPassword] = useState("");
+  const passwordRef = useRef(null);
 
 
 
 
   const passwordGenerator = useCallback(() => {
     let genPassword = "";
-    let dummyString = "abcdefghijklmopqrstuvwxyz";
-    let size = 24;
-    let charList = dummyString.split('');
+    let dummyString = "abcdefghijklmopqrstuvwxyzABCDEFGHIJKLMOPQRSTUVWXYZ";
+    let size = 48;
    // console.log('char-list',charList);
 
     if(numberAllowed) {
-      dummyString += "123456789";
+      let numbers =  "123456789";
+      dummyString += numbers;
+
       size += 9;
     }
     if(charAllowed) {
-      dummyString += "!@#$%^&*()";
-      size += 9;
+      let chars = "!@#$%^&*()";
+      dummyString += chars;
+
+      size += 10;
 
     }
-    let rendom =Math.floor( length * Math.random());
+    let rendom = Math.floor( length * Math.random());
+    numberAllowed ? rendom+=9 : charAllowed ? rendom += 19 : null;
+
     for(let i = 1; i <= length;i++){
       let index = ((dummyString.length + rendom) * i) % size;
       console.log('index',index);
@@ -39,9 +45,17 @@ const App = () => {
     , [length,numberAllowed, charAllowed]);
 
 
+    const copyPasswordToClipboard = useCallback(async() => {
+      try{
+     await navigator.clipboard.writeText(password);
+      }catch(e){
+        console.log(e);
+      }
+    },[password]);
+
   useEffect(() => {
     passwordGenerator()
-  }, [length, numberAllowed, charAllowed,passwordGenerator]);
+  }, [length, numberAllowed, charAllowed]); // when i have to call my childrens
   return (
     <div>
       <div className="w-full max-w-md mx-auto shadow-md
@@ -53,9 +67,10 @@ const App = () => {
             className="outline-none w-full py-1 px-3"
             placeholder="password"
             readOnly
+            ref={passwordRef}
           />
-          <button className="outline-none bg-blue-700 text-white text-center
-           px-3 py-0.5 shrink-0 " onClick={() => { }}>
+          <button onClick={copyPasswordToClipboard} className="outline-none bg-blue-700 text-white text-center
+           px-3 py-0.5 shrink-0 hover:scale-110 hover:transition-normal hover:duration-300 active:bg-blue-800 cursor-pointer">
             copy
           </button>
         </div>
